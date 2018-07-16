@@ -6,14 +6,17 @@ function findMatching(array, name) {
 }
 
 function fuzzyMatch(array, partialName) {
-  let nameLength = partialName.length;
+  // let nameLength = partialName.length;
+  // return array.filter(function (driverName) {
+  //   return driverName.slice(0, nameLength) === partialName;
+  // });
   return array.filter(function (driverName) {
-    return driverName.slice(0, nameLength) === partialName;
-  });
+    return driverName.startsWith(partialName, 0)
+  })
 }
 
 function matchName(array, name) {
   return array.filter(function (driver) {
     return driver.name.toLowerCase() === name.toLowerCase();
   });
-}
+} 
